@@ -8,27 +8,29 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
- <nav class="navbar navbar-inverse">
-    <%= link_to 'Lernkultur', root_path, class: 'navbar-brand' %>
-
+ <nav class="navbar">
     <div class="container">
 
-      <p class="navbar-text" navbar-right>
+      <div class="navbar-header">
+        <%= link_to 'Lernkultur', root_path, class: 'navbar-brand' %>
+      </div>
+          <p class="navbar-text" navbar-right>
 
-        <% if user_signed_in? %>
-          <%= link_to 'New Post', new_post_path, class: 'navbar-link' %>
+          <% if user_signed_in? %>
+            <%= link_to 'New Post', new_post_path, class: 'navbar-link' %>
 
-        <% else %>
+          <% else %>
 
           <%= link_to 'Admin Login', new_user_session_path, class: 'navbar-link' %>
-        <% end %>
-      </p>
-    </div>
+          <% end %>
+          </p>
+      </div>
 
-  </nav>
+    </nav>
 
   <div class="col-md-10 col-md-offset-1">
    <%= yield %>
+ 
   </div>
    
   </body>
